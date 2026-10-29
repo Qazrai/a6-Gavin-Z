@@ -1,52 +1,73 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
     <title>Ollama Simple Client-Gavin Zhao</title>
-    <link 
-        rel="stylesheet" 
+
+    <link
+        rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
     />
+
     <link rel="stylesheet" href="style.css" />
     <script src="app.js" defer></script>
 </head>
+
 <body>
-
     <header>
-
-        <img src="https://ollama.com/public/ollama.png" width = "50">
-
+        <img src="https://ollama.com/public/ollama.png" width="50" alt="Ollama logo">
+        <h1>AI Image Analyzer</h1>
     </header>
 
     <main>
-
         <form id="promptForm">
 
-            <select id="model">
-
+            <label for="model">Choose an AI model</label>
+            <select id="model" required>
+                <option value="">Loading models...</option>
             </select>
 
-            <input type="text" id="prompt" placeholder="Ask Any Question" required/>
+            <label for="imageInput">Select an image</label>
+            <input
+                type="file"
+                id="imageInput"
+                accept="image/*"
+                required
+            />
 
-            <div>
-
-                <button type = "submit">Submit</button>
-
+            <div id="previewContainer" hidden>
+                <p>Image preview:</p>
+                <img id="imagePreview" alt="Selected image preview" />
             </div>
+
+            <label for="prompt">What should the AI look for?</label>
+            <input
+                type="text"
+                id="prompt"
+                placeholder="Describe what you see in this image."
+                value="Describe what you see in this image."
+                required
+            />
+
+            <button type="submit" id="submitButton">
+                Analyze Image
+            </button>
 
         </form>
 
-        <p id="answer"></p>
-
+        <section id="resultContainer" aria-live="polite">
+            <h2>AI Description</h2>
+            <p id="answer">Your image description will appear here.</p>
+        </section>
     </main>
 
     <footer>
-
-        <p id="error"></p>
-
+        <p id="error" role="alert"></p>
+        <p id="status" aria-live="polite"></p>
     </footer>
-    
 </body>
 </html>

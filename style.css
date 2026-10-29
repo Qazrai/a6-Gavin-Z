@@ -1,30 +1,107 @@
-body{
+
+body {
     display: flex;
-    gap: 0.1em;
+    gap: 0.5em;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     text-align: center;
     min-height: 100vh;
+    padding: 1.5em;
     background-color: #f5f4f2;
 }
 
-main{
+header {
+    margin-top: 1em;
+}
+
+header img {
+    display: block;
+    margin: 0 auto 0.5em;
+}
+
+main {
+    width: 100%;
+    max-width: 650px;
     padding: 1em;
     display: grid;
     place-items: center;
 }
 
-p{
-    color: green;
+#promptForm {
+    width: 100%;
+    text-align: left;
 }
 
-#error{
-    color: red;
+#promptForm label {
+    margin-top: 0.8em;
 }
 
-button{
+#model,
+#prompt,
+#imageInput {
+    width: 100%;
+}
+
+#previewContainer {
+    margin: 1em 0;
+    text-align: center;
+}
+
+#imagePreview {
+    display: block;
+    max-width: 100%;
+    max-height: 350px;
+    margin: 0 auto;
+    border-radius: 10px;
+    object-fit: contain;
+}
+
+#submitButton {
+    width: 100%;
     background-color: #cbe9d6;
+    border-color: #a7d4b8;
     color: #333;
-    margin-bottom: 1em;
+    margin-top: 1em;
+}
+
+#submitButton:hover {
+    background-color: #b5dfc4;
+}
+
+#submitButton:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+#resultContainer {
+    width: 100%;
+    margin-top: 1.5em;
+    padding: 1em;
+    border-radius: 10px;
+    background-color: #fff;
+    text-align: left;
+    overflow-wrap: anywhere;
+}
+
+#resultContainer h2 {
+    font-size: 1.2em;
+}
+
+#answer {
+    color: #333;
+    white-space: pre-wrap;
+}
+
+#error {
+    color: #c62828;
+}
+
+#status {
+    color: #287847;
+}
+
+footer {
+    width: 100%;
+    text-align: center;
 }
